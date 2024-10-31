@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 	
 	# Vessel is in static region
 	if tpos.x > speedup_zone_top_left.y and tpos.x < speedup_zone_bottom_right.y and tpos.z > -speedup_zone_top_left.x and tpos.z < -speedup_zone_bottom_right.x:
-		# Add some test message is you want
 		pass
 	# Vessel is out of static region
 	else:

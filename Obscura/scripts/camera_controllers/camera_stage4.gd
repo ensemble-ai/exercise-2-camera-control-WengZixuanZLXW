@@ -47,9 +47,13 @@ func _process(delta: float) -> void:
 			global_position.x = move_toward(cpos.x, tpos.x, abs(delta * catchup_speed * temp_unit_direction.x))
 			global_position.z = move_toward(cpos.z, tpos.z, abs(delta * catchup_speed * temp_unit_direction.z))
 			
-	var distance = Vector2(target.global_position.x - global_position.x, target.global_position.z - global_position.z).length()		
-	if distance > (leash_distance):
-		global_position = global_position - direction * (distance-leash_distance)
+	# Measure direction from camera to target again
+	tpos = target.global_position
+	cpos = global_position
+	# Limit the distance in LeashDistance
+	temp_unit_direction = Vector3((tpos.x - cpos.x), 0, (tpos.z - cpos.z)).normalized()
+	if Vector2(target.global_position.x - global_position.x, target.global_position.z - global_position.z).length() > (leash_distance):
+		global_position = target.global_position - temp_unit_direction * leash_distance
 	super(delta)
 
 

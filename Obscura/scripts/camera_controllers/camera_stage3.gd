@@ -19,13 +19,11 @@ func _process(delta: float) -> void:
 	
 	if draw_camera_logic:
 		draw_logic()
-	
+		
+	# Measure direction from camera to target
 	var tpos = target.global_position
 	var cpos = global_position
-	# Measure direction from camera to target
-	var temp_direction = Vector3((tpos.x - cpos.x), 0, (tpos.z - cpos.z))
-	var temp_unit_direction = temp_direction.normalized()
-	
+	var temp_unit_direction = Vector3((tpos.x - cpos.x), 0, (tpos.z - cpos.z)).normalized()
 	# Follow when player is moving
 	if !target.velocity.is_equal_approx(Vector3.ZERO):
 		global_position.x = move_toward(cpos.x, tpos.x, abs(delta * follow_speed_ratio * target.velocity.length() * temp_unit_direction.x))
@@ -34,10 +32,14 @@ func _process(delta: float) -> void:
 	elif target.velocity.is_equal_approx(Vector3.ZERO):
 		global_position.x = move_toward(cpos.x, tpos.x, abs(delta * catchup_speed_ratio * target.BASE_SPEED * temp_unit_direction.x))
 		global_position.z = move_toward(cpos.z, tpos.z, abs(delta * catchup_speed_ratio * target.BASE_SPEED * temp_unit_direction.z))
-		
-	var distance = Vector2(target.global_position.x - global_position.x, target.global_position.z - global_position.z).length()		
-	if distance > (leash_distance):
-		global_position = target.global_position - temp_unit_direction * leash_distance	
+	
+	# Measure direction from camera to target again
+	tpos = target.global_position
+	cpos = global_position
+	# Limit the distance in LeashDistance
+	temp_unit_direction = Vector3((tpos.x - cpos.x), 0, (tpos.z - cpos.z)).normalized()
+	if Vector2(target.global_position.x - global_position.x, target.global_position.z - global_position.z).length() > (leash_distance):
+		global_position = target.global_position - temp_unit_direction * leash_distance
 	
 	super(delta)
 
