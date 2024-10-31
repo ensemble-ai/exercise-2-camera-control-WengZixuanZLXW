@@ -22,19 +22,21 @@ func _process(delta: float) -> void:
 	
 	var tpos = target.global_position
 	var cpos = global_position
-	
+	var temp_unit_direction = Vector3((tpos.x - cpos.x), 0, (tpos.z - cpos.z)).normalized()
+	var target_unit_direction = Vector3(target.velocity.x, 0, target.velocity.z).normalized()
 	# Vessel is in static region
-	if tpos.x > speedup_zone_top_left.y and tpos.x < speedup_zone_bottom_right.y and tpos.z > -speedup_zone_top_left.x and tpos.z < -speedup_zone_bottom_right.x:
+	if tpos.x > cpos.x + speedup_zone_top_left.y and tpos.x < cpos.x + speedup_zone_bottom_right.y and tpos.z > cpos.z - speedup_zone_top_left.x and tpos.z < cpos.z - speedup_zone_bottom_right.x:
 		pass
 	# Vessel is out of static region
 	else:
 		# Vessel is moving
 		if !target.velocity.is_equal_approx(Vector3.ZERO):
-			var temp_direction = Vector2((tpos.x - cpos.x),(tpos.z - cpos.z))
-			var temp_unit_direction = temp_direction.normalized()
-			global_position.x = move_toward(cpos.x, tpos.x, abs(delta * push_ratio * target.speed * temp_unit_direction.x))
-			global_position.z = move_toward(cpos.z, tpos.z, abs(delta * push_ratio * temp_unit_direction.y))
-	
+			global_position.x = cpos.x + delta * push_ratio * target.velocity.length() * target_unit_direction.x
+			global_position.z = cpos.z + delta * push_ratio * target.velocity.length() * target_unit_direction.z
+		if tpos.x < global_position.x + pushbox_top_left.y + target.RADIUS or tpos.x > global_position.x + pushbox_bottom_right.y - target.RADIUS:
+			global_position.x = cpos.x + delta * target.velocity.x
+		if tpos.z < global_position.z - pushbox_top_left.x + target.RADIUS or tpos.z > global_position.z - pushbox_bottom_right.x - target.RADIUS:
+			global_position.z = cpos.z + delta * target.velocity.z
 		
 	super(delta)
 

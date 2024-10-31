@@ -25,6 +25,8 @@ func _process(delta: float) -> void:
 		dist_above_target = clampf(dist_above_target - zoom_speed * delta, min_zoom, max_zoom)
 	if Input.is_action_pressed("zoom_out"):
 		dist_above_target = clampf(dist_above_target + zoom_speed * delta, min_zoom, max_zoom)
+	if Input.is_action_just_pressed("reset"):
+		global_position = target.global_position
 	
 	#camera tilt code for the brave
 	#if Input.is_action_pressed("camera_tilt_left"):

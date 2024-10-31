@@ -36,8 +36,8 @@ func _process(delta: float) -> void:
 	# Measure direction from camera to target again
 	tpos = target.global_position
 	cpos = global_position
-	# Limit the distance in LeashDistance
 	temp_unit_direction = Vector3((tpos.x - cpos.x), 0, (tpos.z - cpos.z)).normalized()
+	# Limit the distance in LeashDistance
 	if Vector2(target.global_position.x - global_position.x, target.global_position.z - global_position.z).length() > (leash_distance):
 		global_position = target.global_position - temp_unit_direction * leash_distance
 	

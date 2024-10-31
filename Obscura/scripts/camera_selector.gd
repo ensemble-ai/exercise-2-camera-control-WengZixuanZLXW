@@ -24,6 +24,7 @@ func _process(_delta):
 			if null != cameras[index]:
 				if index == current_controller:
 					cameras[current_controller].make_current()
+					cameras[current_controller].global_position = cameras[current_controller].target.global_position
 					print("switch to: " + str(cameras[current_controller].name))
 				else:
 					cameras[index].current = false
