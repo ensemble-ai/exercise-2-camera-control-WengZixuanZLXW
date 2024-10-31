@@ -1,0 +1,4 @@
+best practice of moving camera
+	physical_process?
+
+perspective problem

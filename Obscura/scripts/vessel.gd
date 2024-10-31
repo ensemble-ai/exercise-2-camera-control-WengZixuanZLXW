@@ -36,13 +36,12 @@ func _physics_process(_delta):
 	
 	var direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	#var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		velocity.x = 0
+		velocity.z = 0
 
 	move_and_slide()
 
