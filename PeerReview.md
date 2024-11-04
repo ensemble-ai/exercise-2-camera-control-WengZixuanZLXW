@@ -130,9 +130,18 @@ Please refer to the first code review template on how to do a permalink.
 
 
 #### Style Guide Infractions ####
+Overall the code adhered to the Godot Style Guide very closely, but there were a couple issues.
+- The code here for the [move_toward()](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/351c8155141a0a43e5bce98f4fa9a7695ea62c69/Obscura/scripts/camera_controllers/camera_stage3.gd#L33) function is very long and hard to read without a lot of screen space which is an infraction on the style guide. Maybe using the parenthesis and having it be multiline would make it easier to read and better fit the style guide such as how it is done [here](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/351c8155141a0a43e5bce98f4fa9a7695ea62c69/Obscura/scripts/camera_controllers/camera_stage2.gd#L28)
+- Same case in the [if statement made below for leash checking](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/351c8155141a0a43e5bce98f4fa9a7695ea62c69/Obscura/scripts/camera_controllers/camera_stage3.gd#L41), where the line is very long. Here, the vector2 could have been initialized in the previous line on its own and then used in the if statement for simplicity.
+
+Not many other infractions, overall the student clearly took the time and effort to make their code style adhere to the guidelines.
 
 #### Style Guide Exemplars ####
+There were many exemplars in my opinion that made this project easier to read and understand due to its proper implementation of their code style.
+- Overall [variable ordering](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/351c8155141a0a43e5bce98f4fa9a7695ea62c69/Obscura/scripts/camera_controllers/camera_stage4.gd#L4) in the camera controllers were very good, and followed the styling guidelines. The classnames were also very simple and easy to understand.
+- Great use of [comments](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/351c8155141a0a43e5bce98f4fa9a7695ea62c69/Obscura/scripts/camera_controllers/camera_stage5.gd#L32) all around the project with correct white space usage as well, making the code easy to read and easy to understand.
 
+Nothing else really specific, overall the code was simply organized, well styled, and easy to read and understand
 ___
 #### Put style guide infractures ####
 
