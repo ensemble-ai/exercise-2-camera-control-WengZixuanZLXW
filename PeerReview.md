@@ -21,8 +21,8 @@ If you are in a rare situation where two peer-reviewers are on a single reposito
 
 ## Peer-reviewer Information
 
-* *name:* [your name here] 
-* *email:* [your @ucdavis.edu email address here]
+* *name:* Abhimanyu Warrier
+* *email:* avwarrier@ucdavis.edu
 
 ### Description ###
 
@@ -52,7 +52,7 @@ ___
 
 ### Stage 1 ###
 
-- [ ] Perfect
+- [x] Perfect
 - [ ] Great
 - [ ] Good
 - [ ] Satisfactory
@@ -60,25 +60,25 @@ ___
 
 ___
 #### Justification ##### 
-Write Justification here.
+The camera is correctly centered around the vessel/player and moves at the exact same speed like detailed in the instructions. Additionally when draw_camera_logic is true, the camera draws a 5x5 cross in the center of the screen.
 
 ___
 ### Stage 2 ###
 
 - [ ] Perfect
-- [ ] Great
+- [x] Great
 - [ ] Good
 - [ ] Satisfactory
 - [ ] Unsatisfactory
 
 ___
 #### Justification ##### 
-Write Justification here.
+The camera correctly moves at the autoscroll speed on the x and z axes and the player is able to move within a bounding box. In the example gif, the player can move around freely in the box at its own speed whereas in this implementation, it moves with the box. This is understandable as the instructions were confusing in this aspect and it wasn't clear which approach to take.
 
 ___
 ### Stage 3 ###
 
-- [ ] Perfect
+- [x] Perfect
 - [ ] Great
 - [ ] Good
 - [ ] Satisfactory
@@ -86,12 +86,12 @@ ___
 
 ___
 #### Justification ##### 
-Write Justification here.
+The camera follows the player with a slight delay at a given follow speed and catches up with the given catchup speed when the player is stationary. There is also a leash that limits the player from going too far and when the player reaches the leash, the camera follows the player at the player's speed so it does not exceed the leash. Additionally, the camera is also able to draw a 5x5 unit cross centered on the camera, displaying the said logic.
 
 ___
 ### Stage 4 ###
 
-- [ ] Perfect
+- [x] Perfect
 - [ ] Great
 - [ ] Good
 - [ ] Satisfactory
@@ -99,12 +99,12 @@ ___
 
 ___
 #### Justification ##### 
-Write Justification here.
+The camera moves slightly faster than the character at lead_speed and is also tied by a leash that stops it when the camera gets to a certain distance away from the player in the x and z directions. When the player is stationary, the camera waits (catchup_delay_duration) seconds to center back to the player at catchup speed. The 5x5 cross is also present and centered on the camera to display this logic.
 
 ___
 ### Stage 5 ###
 
-- [ ] Perfect
+- [x] Perfect
 - [ ] Great
 - [ ] Good
 - [ ] Satisfactory
@@ -112,7 +112,7 @@ ___
 
 ___
 #### Justification ##### 
-Write Justification here.
+The camera correctly acts on the player input in the three given scenarios in any direction. When the player is within the inner push_box, the camera does not move. When the player is outside the inner push_box but still within the outer push_box, the camera moves at the player's speed multiplied by a certain push_ratio which is usually < 1 meaning the camera will move slower than the player in that zone. Finally, when the player is touching the outer push_box, the camera moves at the same speed as the player which acts kind of like a leash. There were no errors with this stage and the 2 boxes were drawn properly by the camera when prompeted by draw camera logic being true.
 ___
 # Code Style #
 
