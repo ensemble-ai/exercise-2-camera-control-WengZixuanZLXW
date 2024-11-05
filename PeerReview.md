@@ -159,5 +159,6 @@ If the student has breached the best practices and has done something that shoul
 This should be similar to the Code Style justification.
 
 #### Best Practices Infractions ####
+The student clearly did a thorough review of their code and made sure to implement a lot of best practices so there weren't too many issues, but there were a couple things I could point out.
 
 #### Best Practices Exemplars ####
