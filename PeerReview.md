@@ -1,51 +1,9 @@
 # Peer-Review for Programming Exercise 2 #
 
-## Description ##
-
-For this assignment, you will be giving feedback on the completeness of assignment two: Obscura. To do so, we will give you a rubric to provide feedback. Please give positive criticism and suggestions on how to fix segments of code.
-
-You only need to review code modified or created by the student you are reviewing. You do not have to check the code and project files that the instructor gave out.
-
-Abusive or hateful language or comments will not be tolerated and will result in a grade penalty or be considered a breach of the UC Davis Code of Academic Conduct.
-
-If there are any questions at any point, please email the TA.   
-
-## Due Date and Submission Information
-See the official course schedule for due date.
-
-A successful submission should consist of a copy of this markdown document template that is modified with your peer review. This review document should be placed into the base folder of the repo you are reviewing in the master branch. The file name should be the same as in the template: `CodeReview-Exercise2.md`. You must also include your name and email address in the `Peer-reviewer Information` section below.
-
-If you are in a rare situation where two peer-reviewers are on a single repository, append your UC Davis user name before the extension of your review file. An example: `CodeReview-Exercise2-username.md`. Both reviewers should submit their reviews in the master branch.  
-
-# Solution Assessment #
-
 ## Peer-reviewer Information
 
 * *name:* Abhimanyu Warrier
 * *email:* avwarrier@ucdavis.edu
-
-### Description ###
-
-For assessing the solution, you will be choosing ONE choice from: unsatisfactory, satisfactory, good, great, or perfect.
-
-The break down of each of these labels for the solution assessment.
-
-#### Perfect #### 
-    Can't find any flaws with the prompt. Perfectly satisfied all stage objectives.
-
-#### Great ####
-    Minor flaws in one or two objectives. 
-
-#### Good #####
-    Major flaw and some minor flaws.
-
-#### Satisfactory ####
-    Couple of major flaws. Heading towards solution, however did not fully realize solution.
-
-#### Unsatisfactory ####
-    Partial work, not converging to a solution. Pervasive Major flaws. Objective largely unmet.
-
-
 ___
 
 ## Solution Assessment ##
@@ -116,23 +74,11 @@ The camera correctly acts on the player input in the three given scenarios in an
 ___
 # Code Style #
 
-
-### Description ###
-Check the scripts to see if the student code adheres to the dotnet style guide.
-
-If sections do not adhere to the style guide, please peramlink the line of code from Github and justify why the line of code has not followed the style guide.
-
-It should look something like this:
-
-* [description of infraction](https://github.com/dr-jam/ECS189L) - this is the justification.
-
-Please refer to the first code review template on how to do a permalink.
-
-
 #### Style Guide Infractions ####
 Overall the code adhered to the Godot Style Guide very closely, but there were a couple issues.
 - The code here for the [move_toward()](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/351c8155141a0a43e5bce98f4fa9a7695ea62c69/Obscura/scripts/camera_controllers/camera_stage3.gd#L33) function is very long and hard to read without a lot of screen space which is an infraction on the style guide. Maybe using the parenthesis and having it be multiline would make it easier to read and better fit the style guide such as how it is done [here](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/351c8155141a0a43e5bce98f4fa9a7695ea62c69/Obscura/scripts/camera_controllers/camera_stage2.gd#L28)
 - Same case in the [if statement made below for leash checking](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/351c8155141a0a43e5bce98f4fa9a7695ea62c69/Obscura/scripts/camera_controllers/camera_stage3.gd#L41), where the line is very long. Here, the vector2 could have been initialized in the previous line on its own and then used in the if statement for simplicity.
+- One small thing, the student had lots of comments but no whitespace separating the lines making it slightly cramped such as seen [here in this file](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/ca7a64b1e89eb35439fb1b4372ce074b12578bdf/Obscura/scripts/camera_controllers/camera_stage4.gd#L27) and there were a couple other places where this was done as well.
 
 Not many other infractions, overall the student clearly took the time and effort to make their code style adhere to the guidelines.
 
@@ -149,16 +95,13 @@ ___
 
 # Best Practices #
 
-### Description ###
-
-If the student has followed best practices (Unity coding conventions from the StyleGuides document) then feel free to point at these code segments as examplars. 
-
-If the student has breached the best practices and has done something that should be noted, please add the infraction.
-
-
-This should be similar to the Code Style justification.
-
 #### Best Practices Infractions ####
-The student clearly did a thorough review of their code and made sure to implement a lot of best practices so there weren't too many issues, but there were a couple things I could point out.
+The student clearly did a thorough review of their code and made sure to implement a lot of best practices so there weren't really any examples I could find of a best practice infraction. Additionally, because this assignment did not have too much actual code necessarily being written, it means that there is less room for best practices infractions which is one reason why the student did not have any infractions at all.
 
 #### Best Practices Exemplars ####
+There were a couple really good examples of best practices exemplars in this student's implementation
+- The implementations of [stage 3](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/ca7a64b1e89eb35439fb1b4372ce074b12578bdf/Obscura/scripts/camera_controllers/camera_stage3.gd#L36) and [stage 4](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/ca7a64b1e89eb35439fb1b4372ce074b12578bdf/Obscura/scripts/camera_controllers/camera_stage4.gd#L50) were very well synced together and I could see the student put effort into making the code consistent among different camera controllers which was nice
+- The [drawing of the lines](https://github.com/ensemble-ai/exercise-2-camera-control-WengZixuanZLXW/blob/ca7a64b1e89eb35439fb1b4372ce074b12578bdf/Obscura/scripts/camera_controllers/camera_stage5.gd#L63) in the stage 5 implementation was well structured and spaced out, making it easy to understand which line did what
+- Classes were named well, variables were also named well and easy to understand, and in-built godot functions were used to simplify the camera process
+
+Overall really great implementation of the different cameras and great work!
